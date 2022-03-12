@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Mar 2022 pada 04.50
+-- Waktu pembuatan: 12 Mar 2022 pada 08.01
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.1.2
 
@@ -30,16 +30,25 @@ SET time_zone = "+00:00";
 CREATE TABLE `anak` (
   `id` int(11) NOT NULL,
   `nomor register` varchar(15) NOT NULL,
-  `nama` int(200) NOT NULL,
-  `tempat tanggal lahir` int(50) NOT NULL,
-  `umur` int(10) NOT NULL,
-  `pendidikan` int(250) NOT NULL,
-  `jenis kejahatan` int(250) NOT NULL,
-  `pasal` int(250) NOT NULL,
-  `tinggi badan` int(10) NOT NULL,
-  `berat badan` int(10) NOT NULL,
-  `gambar` int(100) NOT NULL
+  `nama` varchar(200) NOT NULL,
+  `tempat tanggal lahir` varchar(50) NOT NULL,
+  `umur` varchar(10) NOT NULL,
+  `pendidikan` varchar(250) NOT NULL,
+  `jenis kejahatan` varchar(250) NOT NULL,
+  `pasal` varchar(250) NOT NULL,
+  `tinggi badan` varchar(10) NOT NULL,
+  `berat badan` varchar(10) NOT NULL,
+  `gambar` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `anak`
+--
+
+INSERT INTO `anak` (`id`, `nomor register`, `nama`, `tempat tanggal lahir`, `umur`, `pendidikan`, `jenis kejahatan`, `pasal`, `tinggi badan`, `berat badan`, `gambar`) VALUES
+(1, 'B.IIa/2017', 'Feri Pieter Drunyi', 'Papua, 29 September 2002', '22', 'SMA', 'Narkoba', 'KUHP', '165', '65', '1.jpg'),
+(2, 'B.II/2018', 'M. Rizal Mudin', 'Jailolo, 28 Maret 2001', '17', 'SMA', 'Pencurian', 'KUHP', '168', '62', '2.jpg'),
+(3, 'B.IIa/2018', 'Indha Ciho', 'Jailolo, 19 September 2002', '20', 'SMA', 'Perlindungan Anak', 'Pasal 81 Ayat 2', '170', '68', '3.jpg');
 
 --
 -- Indexes for dumped tables
@@ -59,7 +68,7 @@ ALTER TABLE `anak`
 -- AUTO_INCREMENT untuk tabel `anak`
 --
 ALTER TABLE `anak`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

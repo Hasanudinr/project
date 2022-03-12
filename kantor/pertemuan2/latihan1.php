@@ -1,6 +1,6 @@
 <?php 
 // koneksi ke DB & pilih database
-$conn = mysqli_connect('localhost', 'root', '', 'kantor');
+$conn = mysqli_connect('localhost', 'root', '', 'db_pembinaan');
 
 // Query isi tabel andik
 $result = mysqli_query($conn, "SELECT * FROM anak");
