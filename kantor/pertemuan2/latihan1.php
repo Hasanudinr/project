@@ -1,6 +1,6 @@
 <?php 
 // koneksi ke DB & pilih database
-$conn = mysqli_connect('localhost', 'root', '', 'db_pembinaan');
+$conn = mysqli_connect('localhost', 'root', '', 'kantor');
 
 // Query isi tabel andik
 $result = mysqli_query($conn, "SELECT * FROM anak");
@@ -44,22 +44,23 @@ $anak = $rows;
   <?php foreach($anak as $a) ?>
   <tr>
     <td>1</td>
-    <td>B.IIa/2017</td>
-    <td>Feri Pieter Drunyi</td>
-    <td>Papua, 29 September 2002</td>
-    <td>22</td>
-    <td>SMA</td>
-    <td>Narkoba</td>
-    <td>KUHP</td>
-    <td>165</td>
-    <td>65</td>
-    <td><img src="img/1.jpg" width="60"></td>
+    <td><?= $a['nomor register']; ?></td>
+    <td><?= $a['nama']; ?></td>
+    <td><?= $a['tempat tanggal lahir']; ?></td>
+    <td><?= $a['umur']; ?></td>
+    <td><?= $a['pendidikan']; ?></td>
+    <td><?= $a['jenis kejahatan']; ?></td>
+    <td><?= $a['pasal']; ?></td>
+    <td><?= $a['tinggi badan']; ?></td>
+    <td><?= $a['berat badan']; ?></td>
+    <td><img src="img/<?= $a['gambar']; ?>" width="60"></td>
     <td>
       <a href="">ubah</a> | <a href="">hapus</a>
       </td>
   </tr>
   <?php 'endforeach'; ?>
 </table>
+
 
 </body>
 
