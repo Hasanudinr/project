@@ -1,19 +1,6 @@
 <?php 
-// koneksi ke DB & pilih database
-$conn = mysqli_connect('localhost', 'root', '', 'db_pembinaan');
-
-// Query isi tabel anak
-$result = mysqli_query($conn, "SELECT * FROM anak");
-
-
-// ubah data ke dalam array
-$rows = [];
-while ($row = mysqli_fetch_assoc($result)) {
-  $rows[] = $row;
-}
-
-// tampung ke variabel anak
-$anak = $rows;
+require 'functions.php'
+$anak = Query("SELECT * FORM anak");
 
 ?>
 <!DOCTYPE html>
