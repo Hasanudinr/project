@@ -1,8 +1,6 @@
 <?php 
 require 'functions.php';
-
-$anak = Query("SELECT * FROM anak");
-
+$anak = query("SELECT * FROM anak");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,26 +29,28 @@ $anak = Query("SELECT * FROM anak");
   </tr>
  
   <?php $i = 1; ?>
-  <?php foreach($anak as $row):?>
+  <?php foreach ($anak as $ank) : ?>
   <tr>
     <td><?= $i; ?></td>
-    <td><?= $row["nomor register"]; ?></td>
-    <td><?= $row["nama"]; ?></td>
-    <td><?= $row["tempat tanggal lahir"]; ?></td>
-    <td><?= $row["umur"]; ?></td>
-    <td><?= $row["pendidikan"]; ?></td>
-    <td><?= $row["jenis kejahatan"]; ?></td>
-    <td><?= $row["pasal"]; ?></td>
-    <td><?= $row["tinggi badan"]; ?></td>
-    <td><?= $row["berat badan"]; ?></td>
+    <td><?= $ank["nomor register"]; ?></td>
+    <td><?= $ank["nama"]; ?></td>
+    <td><?= $ank["tempat tanggal lahir"]; ?></td>
+    <td><?= $ank["umur"]; ?></td>
+    <td><?= $ank["pendidikan"]; ?></td>
+    <td><?= $ank["jenis kejahatan"]; ?></td>
+    <td><?= $ank["pasal"]; ?></td>
+    <td><?= $ank["tinggi badan"]; ?></td>
+    <td><?= $ank["berat badan"]; ?></td>
     <td>
-      <img src="img/<?= $row["gambar"] ?>" width="50"></td>
+      <img src="img/<?= $ank["gambar"] ?>" width="50"></td>
     <td>
       <a href="">ubah</a> | <a href="">hapus</a>
       </td>
   </tr>
-  <?php $i++; ?>
-  <?php endforeach; ?>
+    <?php $i++; ?>
+    <?php endforeach; 
+    ?>
+
   </table>
 </body>
 

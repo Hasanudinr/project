@@ -1,20 +1,15 @@
 <?php 
-
-function  koneksi () 
-{
-
+// koneksi ke DB & pilih database
 $conn = mysqli_connect('localhost', 'root', '', 'db_pembinaan');
 
-}
-
-function Query($query)
-{
-  $conn = koneksi();
+function query($query){
+  global $conn;
   $result = mysqli_query($conn, $query);
   $rows = [];
   while ($row = mysqli_fetch_assoc($result)) {
     $rows[] = $row;
   }
+   return $rows;
 }
 
 ?>

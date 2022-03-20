@@ -1,6 +1,19 @@
 <?php 
-require 'functions.php'
-$anak = Query("SELECT * FORM anak");
+// koneksi ke DB & pilih database
+$conn = mysqli_connect('localhost', 'root', '', 'db_pembinaan');
+
+// Query isi tabel anak
+$result = mysqli_query($conn, "SELECT * FROM anak");
+
+
+// ubah data ke dalam array
+// $rows = [];
+// while ($row = mysqli_fetch_assoc($result)) {
+//   $rows[] = $row;
+
+
+// // tampung ke variabel anak
+// $anak = $rows;
 
 ?>
 <!DOCTYPE html>
@@ -15,7 +28,7 @@ $anak = Query("SELECT * FORM anak");
   <h3>Daftar Andikpas</h3>
   <table border="1" cellpadding="10" cellspacing="0">
   <tr>
-    <th>#</th>
+    <th>No</th>
     <th>NOMOR REGISTER</th>
     <th>NAMA</th>
     <th>TEMPAT TANGGAL LAHIR</th>
@@ -28,29 +41,29 @@ $anak = Query("SELECT * FORM anak");
     <th>GAMBAR</th>
     <th>AKSI</th>
   </tr>
-
-  <?php $i=1;
-  foreach ($anak as $a); ?>
+ 
+  <?php $i = 1; ?>
+  <?php while ($row = mysqli_fetch_assoc($result)):?>
   <tr>
-    <td><?= $i++; ?></td>
-    <td><?= $a['nomor register']; ?></td>
-    <td><?= $a['nama']; ?></td>
-    <td><?= $a['tempat tanggal lahir']; ?></td>
-    <td><?= $a['umur']; ?></td>
-    <td><?= $a['pendidikan']; ?></td>
-    <td><?= $a['jenis kejahatan']; ?></td>
-    <td><?= $a['pasal']; ?></td>
-    <td><?= $a['tinggi badan']; ?></td>
-    <td><?= $a['berat badan']; ?></td>
-    <td><img src="img/<?= $a['gambar']; ?>" width="60"></td>
+    <td><?= $i; ?></td>
+    <td><?= $row["nomor register"]; ?></td>
+    <td><?= $row["nama"]; ?></td>
+    <td><?= $row["tempat tanggal lahir"]; ?></td>
+    <td><?= $row["umur"]; ?></td>
+    <td><?= $row["pendidikan"]; ?></td>
+    <td><?= $row["jenis kejahatan"]; ?></td>
+    <td><?= $row["pasal"]; ?></td>
+    <td><?= $row["tinggi badan"]; ?></td>
+    <td><?= $row["berat badan"]; ?></td>
+    <td>
+      <img src="img/<?= $row["gambar"] ?>" width="50"></td>
     <td>
       <a href="">ubah</a> | <a href="">hapus</a>
       </td>
   </tr>
-  <?php 'endforeach'; ?>
-</table>
-
-
+  <?php $i++; ?>
+  <?php endwhile; ?>
+  </table>
 </body>
 
 </html>
