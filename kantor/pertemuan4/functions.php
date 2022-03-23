@@ -48,26 +48,19 @@ function ubah ($data) {
       $nr = htmlspecialchars($data["nr"]);
       $nama = htmlspecialchars($data["nama"]);
       $tempat = htmlspecialchars($data["tempat"]);
-      $tanggal = htmlspecialchars($data["tgl"]);
-      $jeniskelamin = htmlspecialchars($data["jk"]);
+      $tgl = htmlspecialchars($data["tgl"]);
+      $jk = htmlspecialchars($data["jk"]);
       $umur = htmlspecialchars($data["umur"]);
       $pendidikan = htmlspecialchars($data["pendidikan"]);
       $pasal = htmlspecialchars($data["pasal"]);
       $gambar = htmlspecialchars($data["gambar"]);
 
       // query update data
-      $query = "UPDATE anak SET
-                nr = '$nr',
-                nama =  '$nama',
-                tempat = '$tempat',
-                tanggal = '$tanggal',
-                jeniskelamin = '$jeniskelamin',
-                umur  = '$umur',
-                pendidikan = '$pendidikan',
-                pasal = '$pasal',
-                gambar = '$gambar',
-              WHERE id = $id
-              ";
+      $query = "UPDATE anak SET nr = '$nr', nama = '$nama', 
+                tempat = '$tempat', tgl = '$tgl', jk = '$jk',
+                umur ='$umur', pendidikan = '$pendidikan', 
+                pasal = '$pasal', gambar = '$gambar'
+                WHERE id = $id";
 
       mysqli_query($conn, $query);
 

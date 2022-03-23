@@ -11,23 +11,20 @@ $ank = query("SELECT * FROM anak WHERE id = $id") [0];
 if (isset($_POST["submit"])) {
   
 // cek data berhasil diubah atau tidak
-if ( ubah($_POST) > 0 ) {
+if (ubah($_POST) > 0 ) {
   echo "
         <script>
-        alert ('data berhasil diubah');
-        document.location.href = 'latihan4.php';
-        </script>";
-}else{
+          alert('data berhasil diubah!');
+          document.location.href = 'latihan4.php';
+        </script>";}
+  else {
   echo "
-  <script>
-  alert ('data gagal diubah');
-  document.location.href = 'latihan4.php';
-  </script>";
-}    
-
+      <script>
+        alert ('data gagal diubah!')
+        document.location.href = 'latihan4.php';
+      </script>";  
+  }
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
