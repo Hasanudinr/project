@@ -153,10 +153,11 @@
                 <div class="table-responsive">
                   <table id="example" class="table table-striped data-table" style="width: 100%">
                     <thead>
-                      <form action="" method="post">
+                      <form action="" method="post" enctype="multipart/form-data">
                       <tr>
                         <th>
                           <input type="hidden" name="id" id="id" value="<?= $ank["id"]; ?>">
+                          <input type="hidden" name="fotoLama" id="id" value="<?= $ank["foto"]; ?>">
                         </th>
                       </tr>
                       <tr>
@@ -250,7 +251,8 @@
                       <tr>
                         <th>
                           <label for="foto">foto</label>
-                          <input type="teks" name="foto" id="foto" required value="<?= $ank["foto"]; ?>"> 
+                          <img src="img/<?= $ank["foto"]; ?>" width="80"><br><br>
+                          <input type="file" name="foto" id="foto"> 
                         </th>
                       </tr>
                       <tr>

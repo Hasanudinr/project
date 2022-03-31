@@ -240,7 +240,7 @@
                       <tr>
                         <th>
                           <label for="foto">Foto</label>
-                          <input type="file" name="foto" id="foto" required> 
+                          <input type="file" name="foto" id="foto"> 
                         </th>
                       </tr>
                       <tr>

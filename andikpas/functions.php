@@ -37,8 +37,8 @@ function tambah ($data) {
     
 
     // upload gambar
-    $foto = upload ();
-    if  (!$foto) {
+    $foto = upload();
+    if (!$foto) {
       return false;
     }
 
@@ -56,13 +56,49 @@ function tambah ($data) {
 
 
 
-function upload ($foto) {
+function upload () {
 
+  $namaFile = $_FILES['foto']['name'];
+  $ukuranFile = $_FILES['foto']['size'];
+  $error = $_FILES['foto']['error'];
+  $tmpName = $_FILES['foto']['tmp_name'];
+
+  // cek apakah tidak ada gambar diupload
+  if ($error === 4) {
+    echo "<script>
+          alert('pilih gambar terlebih dahulu');
+          </script>";
+    return false;
+    
+  }
   
+  // cek gambar atau bukan
+  $extensiGambarValid = ['jpg', 'jpeg', 'png'];
+  $extensiGambar = explode('.', $namaFile);
+  $extensiGambar = strtolower(end($extensiGambar));
+  if ( !in_array($extensiGambar, $extensiGambarValid)) {
+    echo "<script>
+          alert('yang anda upload bukan gambar');
+          </script>";
+    return false;
+  }
 
+  // cek jika ukuran terlalu besar
+  if ($ukuranFile > 1000000) {
+    echo "<script>
+          alert('ukuran gambar terlalu besar');
+          </script>";
+    return false;
+  }
 
+// lolos pengecekan, gambar siap diupload
+// generate nama foto baru
+  $namaFileBaru = uniqid();
+  $namaFileBaru .= '.';
+  $namaFileBaru .= $extensiGambar;
 
-
+  move_uploaded_file($tmpName, 'img/'.$namaFileBaru);
+  return $namaFileBaru;
 
 
 
@@ -99,7 +135,16 @@ function ubah ($data) {
       $kk  = htmlspecialchars ($data["kk"]);
       $ktp  = htmlspecialchars ($data["ktp"]);
       $ijazah  = htmlspecialchars ($data["ijazah"]);
-      $foto = htmlspecialchars ($data["foto"]);
+      $fotoLama = htmlspecialchars ($data["fotoLama"]);
+
+
+      // cek apakah user pilih gambar baru atau tidak
+      if ($_FILES['foto']['error'] === 4) {
+        $foto = $fotoLama;
+      } else {
+        $foto = upload();
+      }
+      
 
       // query inset data
       $query = "UPDATE andikpas SET
