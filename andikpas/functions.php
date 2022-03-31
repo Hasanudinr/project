@@ -34,7 +34,13 @@ function tambah ($data) {
     $kk  = htmlspecialchars ($data["kk"]);
     $ktp  = htmlspecialchars ($data["ktp"]);
     $ijazah  = htmlspecialchars ($data["ijazah"]);
-    $foto = htmlspecialchars ($data["foto"]);
+    
+
+    // upload gambar
+    $foto = upload ();
+    if  (!$foto) {
+      return false;
+    }
 
     // query inset data
     $query = "INSERT INTO andikpas VALUES 
@@ -45,6 +51,19 @@ function tambah ($data) {
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
+
+}
+
+
+
+function upload ($foto) {
+
+  
+
+
+
+
+
 
 
 }

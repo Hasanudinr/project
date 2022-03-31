@@ -148,7 +148,7 @@
                 <div class="table-responsive">
                   <table id="example" class="table table-striped data-table" style="width: 100%">
                     <thead>
-                      <form action="" method="post">
+                      <form action="" method="post" enctype="multipart/form-data">
                       <tr>
                         <th>
                           <label for="nr">Nomor Register</label>
@@ -239,8 +239,8 @@
                       </tr>
                       <tr>
                         <th>
-                          <label for="foto">foto</label>
-                          <input type="teks" name="foto" id="foto" required> 
+                          <label for="foto">Foto</label>
+                          <input type="file" name="foto" id="foto" required> 
                         </th>
                       </tr>
                       <tr>
