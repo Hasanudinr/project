@@ -166,7 +166,9 @@ $andikpas = query ("SELECT * FROM andikpas");
                         <td><?= $row["pendidikan"]; ?></td>
                         <td><?= $row["kejahatan"]; ?></td>
                         <td><?= $row["pasal"]; ?></td>
-                        <td><?= $row["akte"]; ?></td>
+                        <td>
+                          <a href="./file/<?= $row["id"]; ?>">Lihat File</a>
+                        </td>
                         <td><?= $row["kk"]; ?></td>
                         <td><?= $row["ktp"]; ?></td>
                         <td><?= $row["ijazah"]; ?></td>

@@ -149,100 +149,83 @@
                   <table id="example" class="table table-striped data-table" style="width: 100%">
                     <thead>
                       <form action="" method="post" enctype="multipart/form-data">
-                      <tr>
-                        <th>
-                          <label for="nr">Nomor Register</label>
-                          <input type="text" name="nr" id="nr" required>
-                        </th>
-                      </tr>
-                      <tr>
-                        <th>
-                          <label for="nama">Nama</label>
-                          <input type="text" name="nama" id="nama" required>
-                        </th>
-                      </tr>
-                      <tr>
-                        <th>
-                          <label for="tempat">Tempat</label>
-                          <input type="text" name="tempat" id="tempat" require>
-                        </th>
-                      </tr>
-                      <tr>
-                        <th>
-                          <label for="tgllahir">Tanggal Lahir</label>
-                          <input type="date" name="tgllahir" id="tgllahir" required>
-                        </th>
-                      </tr>
-                      <tr>
-                        <th>
-                          <label for="umur">Umur</label>
-                          <input type="text" name="umur" id="umur" required>
-                        </th>
-                      </tr>
-                      <tr>
-                        <th>
-                          <label for="jk">Jenis Kelamin</label>
-                          <input type="radio" name="jk" id="jk" value="L"> Laki - Laki
-                          <input type="radio" name="jk" id="jk" value="P"> Perempuan
-                        </th>
-                      </tr>
-                      <tr>
-                        <th>
-                          <label for="agama">Agama</label>
-                          <input type="text" name="agama" id="agama">
-                        </th>
-                      </tr>
-                      <tr>
-                        <th>
-                          <label for="pendidikan">Pendidikan</label>
-                          <input type="text" name="pendidikan" id="pendidikan" required>
-                        </th>
-                      </tr>
-                      <tr>
-                        <th>
-                          <label for="kejahatan">Kejahatan</label>
-                          <input type="text" name="kejahatan" id="kejahatan" required>
-                        </th>
-                      </tr>
-                      <tr>
-                        <th>
-                          <label for="pasal">Pasal</label>
-                          <input type="text" name="pasal" id="pasal" required>
-                        </th>
-                      </tr>
-                      <tr>
-                        <th>
-                          <label for="akte">Akte Kelahiran</label>
-                          <input type="radio" name="akte" id="akte" value="ada"> Ada
-                          <input type="radio" name="akte" id="akte" value="tidak"> Tidak Ada
-                        </th>
-                      </tr>
-                      <tr>
-                        <th>
-                          <label for="kk">Kartu Keluarga</label>
-                          <input type="radio" name="kk" id="kk" value="ada"> Ada
-                          <input type="radio" name="kk" id="kk" value="tidak"> Tidak Ada
-                        </th>
-                      </tr>
-                      <tr>
-                        <th>
-                          <label for="ktp">Kartu Tanda Penduduk</label>
-                          <input type="radio" name="ktp" id="ktp" value="ada"> Ada
-                          <input type="radio" name="ktp" id="ktp" value="tidak"> Tidak Ada
-                        </th>
-                      </tr>
-                      <tr>
-                        <th>
-                          <label for="ijazah">Ijazah Terakhir</label>
-                          <input type="teks" name="ijazah" id="ijazah"> 
-                        </th>
-                      </tr>
-                      <tr>
-                        <th>
-                          <label for="foto">Foto</label>
-                          <input type="file" name="foto" id="foto"> 
-                        </th>
-                      </tr>
+                      <div class="mb-3">
+                        <label for="nr" class="form-label">Nomor Register</label>
+                        <input type="text" class="form-control" name="nr" id="nr" required>
+                     </div>
+                     <div class="mb-3">
+                        <label for="nama" class="form-label">Nama</label>
+                        <input type="text" class="form-control" name="nama" id="nama" required>
+                     </div>
+                     <div class="mb-3">
+                        <label for="tempat" class="form-label">Tempat Lahir</label>
+                        <input type="text" class="form-control" name="tempat" id="tempat" required>
+                     </div>
+                     <div class="mb-3">
+                        <label for="tgllahir" class="form-label">Tanggal Lahir</label>
+                        <input type="date" class="form-control" name="tgllahir" id="tgllahir" required>
+                     </div>
+                     <div class="mb-3">
+                        <label for="umur" class="form-label">Umur</label>
+                        <input type="text" class="form-control" name="umur" id="umur" required>
+                     </div>
+                     <fieldset class="row mb-3">
+                      <legend class="col-form-label col-sm-2 pt-0">Jenis Kelamin</legend>
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="jk" id="jk" value="L" checked>
+                          <label class="form-check-label" for="jk">
+                            Laki-Laki
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="jk" id="jk" value="P">
+                          <label class="form-check-label" for="jk">
+                            Perempuan
+                          </label>
+                        </div>
+                      </fieldset>
+                      <label for="agama" class="form-label">Agama</label>
+                        <input class="form-control" name="agama" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+                        <datalist id="datalistOptions">
+                          <option value="Islam">
+                          <option value="Katolik">
+                          <option value="Protestan">
+                          <option value="Budha">
+                          <option value="Khonghucu">
+                        </datalist><br>
+                      <div class="mb-3">
+                        <label for="pendidikan" class="form-label">Pendidikan</label>
+                        <input type="text" class="form-control" name="pendidikan" id="pendidikan" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="kejahatan" class="form-label">Kejahatan</label>
+                        <input type="text" class="form-control" name="kejahatan" id="kejahatan" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="pasal" class="form-label">Pasal</label>
+                        <input type="text" class="form-control" name="pasal" id="pasal" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="akte" class="form-label">Akte Kelahiran</label>
+                        <input class="form-control" name="akte" type="file" id="akte">
+                      </div>
+                      <div class="mb-3">
+                        <label for="kk" class="form-label">Kartu Keluarga</label>
+                        <input class="form-control" name="kk" type="file" id="kk">
+                      </div>
+                      <div class="mb-3">
+                        <label for="ktp" class="form-label">Kartu Tanda Penduduk</label>
+                        <input class="form-control" name="ktp" type="file" id="ktp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="ijazah" class="form-label">Ijazah Terkahir</label>
+                        <input class="form-control" name="ijazah" type="file" id="ijazah">
+                      </div>
+                      <div class="mb-3">
+                        <label for="foto" class="form-label">Foto Andikpas</label>
+                        <input class="form-control" name="foto" type="file" id="foto">
+                      </div>
                       <tr>
                         <th>
                           <button type="submit" name="submit">Tambah Data</button>

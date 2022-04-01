@@ -30,7 +30,7 @@ function tambah ($data) {
     $pendidikan  = htmlspecialchars ($data["pendidikan"]);
     $kejahatan  = htmlspecialchars ($data["kejahatan"]);
     $pasal  = htmlspecialchars ($data["pasal"]);
-    $akte  = htmlspecialchars ($data["akte"]);
+    // $akte  = htmlspecialchars ($data["akte"]);
     $kk  = htmlspecialchars ($data["kk"]);
     $ktp  = htmlspecialchars ($data["ktp"]);
     $ijazah  = htmlspecialchars ($data["ijazah"]);
@@ -39,6 +39,11 @@ function tambah ($data) {
     // upload gambar
     $foto = upload();
     if (!$foto) {
+      return false;
+    }
+    // upload file
+    $akte = pdf();
+    if(!$akte){
       return false;
     }
 
@@ -55,7 +60,7 @@ function tambah ($data) {
 }
 
 
-
+// upload gambar
 function upload () {
 
   $namaFile = $_FILES['foto']['name'];
@@ -100,9 +105,56 @@ function upload () {
   move_uploaded_file($tmpName, 'img/'.$namaFileBaru);
   return $namaFileBaru;
 
+}
 
+// upload file pdf
+
+function pdf () {
+
+  $namaFile = $_FILES['akte']['name'];
+  $ukuranFile = $_FILES['akte']['size'];
+  $error = $_FILES['akte']['error'];
+  $tmpName = $_FILES['akte']['tmp_name'];
+
+  // cek apakah tidak ada pdf diupload
+  if ($error === 4) {
+    echo "<script>
+          alert('pilih file terlebih dahulu');
+          </script>";
+    return false;
+    
+  }
+  
+  // cek gambar atau bukan
+  $extensiGambarValid = ['pdf', 'jpg'];
+  $extensiGambar = explode('.', $namaFile);
+  $extensiGambar = strtolower(end($extensiGambar));
+  if ( !in_array($extensiGambar, $extensiGambarValid)) {
+    echo "<script>
+          alert('yang anda upload bukan file pdf');
+          </script>";
+    return false;
+  }
+
+  // cek jika ukuran terlalu besar
+  if ($ukuranFile > 1000000) {
+    echo "<script>
+          alert('ukuran file terlalu besar');
+          </script>";
+    return false;
+  }
+
+// lolos pengecekan, file siap diupload
+// generate nama file baru
+  $namaFileBaru = uniqid();
+  $namaFileBaru .= '.';
+  $namaFileBaru .= $extensiGambar;
+
+  move_uploaded_file($tmpName, 'file/'.$namaFileBaru);
+  return $namaFileBaru;
 
 }
+
 
 function hapus ($id) {
 
