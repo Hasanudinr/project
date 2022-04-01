@@ -167,11 +167,17 @@ $andikpas = query ("SELECT * FROM andikpas");
                         <td><?= $row["kejahatan"]; ?></td>
                         <td><?= $row["pasal"]; ?></td>
                         <td>
-                          <a href="./file/<?= $row["id"]; ?>">Lihat File</a>
+                          <a href="unduh.php?file=<?= $row["akte"]; ?>">Lihat File</a>
                         </td>
-                        <td><?= $row["kk"]; ?></td>
-                        <td><?= $row["ktp"]; ?></td>
-                        <td><?= $row["ijazah"]; ?></td>
+                        <td>
+                          <a href="unduh.php?file=<?= $row["kk"]; ?>">Lihat File</a>
+                        </td>
+                        <td>
+                          <a href="unduh.php?file=<?= $row["ktp"]; ?>">Lihat File</a>
+                        </td>
+                        <td>
+                        <a href="unduh.php?file=<?= $row["ijazah"]; ?>">Lihat File</a>
+                        </td>
                         <td><img src="img/<?= $row["foto"]; ?>" width="40"></td>
                         <td>
                           <a href="ubah.php?id=<?= $row["id"]; ?>">Ubah</a>

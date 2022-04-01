@@ -31,9 +31,9 @@ function tambah ($data) {
     $kejahatan  = htmlspecialchars ($data["kejahatan"]);
     $pasal  = htmlspecialchars ($data["pasal"]);
     // $akte  = htmlspecialchars ($data["akte"]);
-    $kk  = htmlspecialchars ($data["kk"]);
-    $ktp  = htmlspecialchars ($data["ktp"]);
-    $ijazah  = htmlspecialchars ($data["ijazah"]);
+    // $kk  = htmlspecialchars ($data["kk"]);
+    // $ktp  = htmlspecialchars ($data["ktp"]);
+    // $ijazah  = htmlspecialchars ($data["ijazah"]);
     
 
     // upload gambar
@@ -42,10 +42,24 @@ function tambah ($data) {
       return false;
     }
     // upload file
-    $akte = pdf();
+    $akte = akte();
     if(!$akte){
       return false;
     }
+    $kk = kk();
+    if(!$kk){
+      return false;
+    }
+    $ktp = ktp();
+    if(!$ktp){
+      return false;
+    }
+    $ijazah = ijazah();
+    if(!$ijazah){
+      return false;
+    }
+    
+
 
     // query inset data
     $query = "INSERT INTO andikpas VALUES 
@@ -109,7 +123,7 @@ function upload () {
 
 // upload file pdf
 
-function pdf () {
+function akte () {
 
   $namaFile = $_FILES['akte']['name'];
   $ukuranFile = $_FILES['akte']['size'];
@@ -126,10 +140,10 @@ function pdf () {
   }
   
   // cek gambar atau bukan
-  $extensiGambarValid = ['pdf', 'jpg'];
-  $extensiGambar = explode('.', $namaFile);
-  $extensiGambar = strtolower(end($extensiGambar));
-  if ( !in_array($extensiGambar, $extensiGambarValid)) {
+  $extensiFileValid = ['pdf', 'jpg'];
+  $extensifile = explode('.', $namaFile);
+  $extensifile = strtolower(end($extensifile));
+  if ( !in_array($extensifile, $extensiFileValid)) {
     echo "<script>
           alert('yang anda upload bukan file pdf');
           </script>";
@@ -148,12 +162,151 @@ function pdf () {
 // generate nama file baru
   $namaFileBaru = uniqid();
   $namaFileBaru .= '.';
-  $namaFileBaru .= $extensiGambar;
+  $namaFileBaru .= $extensifile;
 
   move_uploaded_file($tmpName, 'file/'.$namaFileBaru);
   return $namaFileBaru;
 
 }
+
+function kk () {
+
+  $namaFile = $_FILES['kk']['name'];
+  $ukuranFile = $_FILES['kk']['size'];
+  $error = $_FILES['kk']['error'];
+  $tmpName = $_FILES['kk']['tmp_name'];
+
+  // cek apakah tidak ada pdf diupload
+  if ($error === 4) {
+    echo "<script>
+          alert('pilih file terlebih dahulu');
+          </script>";
+    return false;
+    
+  }
+  
+  // cek gambar atau bukan
+  $extensiFileValid = ['pdf', 'jpg'];
+  $extensifile = explode('.', $namaFile);
+  $extensifile = strtolower(end($extensifile));
+  if ( !in_array($extensifile, $extensiFileValid)) {
+    echo "<script>
+          alert('yang anda upload bukan file pdf');
+          </script>";
+    return false;
+  }
+
+  // cek jika ukuran terlalu besar
+  if ($ukuranFile > 1000000) {
+    echo "<script>
+          alert('ukuran file terlalu besar');
+          </script>";
+    return false;
+  }
+
+// lolos pengecekan, file siap diupload
+// generate nama file baru
+  $namaFileBaru = uniqid();
+  $namaFileBaru .= '.';
+  $namaFileBaru .= $extensifile;
+
+  move_uploaded_file($tmpName, 'file/'.$namaFileBaru);
+  return $namaFileBaru;
+
+}
+function ktp () {
+
+  $namaFile = $_FILES['ktp']['name'];
+  $ukuranFile = $_FILES['ktp']['size'];
+  $error = $_FILES['ktp']['error'];
+  $tmpName = $_FILES['ktp']['tmp_name'];
+
+  // cek apakah tidak ada pdf diupload
+  if ($error === 4) {
+    echo "<script>
+          alert('pilih file terlebih dahulu');
+          </script>";
+    return false;
+    
+  }
+  
+  // cek gambar atau bukan
+  $extensiFileValid = ['pdf', 'jpg'];
+  $extensifile = explode('.', $namaFile);
+  $extensifile = strtolower(end($extensifile));
+  if ( !in_array($extensifile, $extensiFileValid)) {
+    echo "<script>
+          alert('yang anda upload bukan file pdf');
+          </script>";
+    return false;
+  }
+
+  // cek jika ukuran terlalu besar
+  if ($ukuranFile > 1000000) {
+    echo "<script>
+          alert('ukuran file terlalu besar');
+          </script>";
+    return false;
+  }
+
+// lolos pengecekan, file siap diupload
+// generate nama file baru
+  $namaFileBaru = uniqid();
+  $namaFileBaru .= '.';
+  $namaFileBaru .= $extensifile;
+
+  move_uploaded_file($tmpName, 'file/'.$namaFileBaru);
+  return $namaFileBaru;
+
+}
+
+function ijazah () {
+
+  $namaFile = $_FILES['ijazah']['name'];
+  $ukuranFile = $_FILES['ijazah']['size'];
+  $error = $_FILES['ijazah']['error'];
+  $tmpName = $_FILES['ijazah']['tmp_name'];
+
+  // cek apakah tidak ada pdf diupload
+  if ($error === 4) {
+    echo "<script>
+          alert('pilih file terlebih dahulu');
+          </script>";
+    return false;
+    
+  }
+  
+  // cek gambar atau bukan
+  $extensiFileValid = ['pdf', 'jpg'];
+  $extensifile = explode('.', $namaFile);
+  $extensifile = strtolower(end($extensifile));
+  if ( !in_array($extensifile, $extensiFileValid)) {
+    echo "<script>
+          alert('yang anda upload bukan file pdf');
+          </script>";
+    return false;
+  }
+
+  // cek jika ukuran terlalu besar
+  if ($ukuranFile > 1000000) {
+    echo "<script>
+          alert('ukuran file terlalu besar');
+          </script>";
+    return false;
+  }
+
+// lolos pengecekan, file siap diupload
+// generate nama file baru
+  $namaFileBaru = uniqid();
+  $namaFileBaru .= '.';
+  $namaFileBaru .= $extensifile;
+
+  move_uploaded_file($tmpName, 'file/'.$namaFileBaru);
+  return $namaFileBaru;
+
+}
+
+
 
 
 function hapus ($id) {
@@ -214,17 +367,6 @@ function ubah ($data) {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 function registrasi ($data) {
