@@ -2,7 +2,7 @@
 <?php 
 require 'functions.php';
 
-$andikpas = query ("SELECT * FROM andikpas");
+$andikpas = query ("SELECT * FROM andikpas1");
 
 ?>
 
@@ -72,6 +72,18 @@ $andikpas = query ("SELECT * FROM andikpas");
               </a>
             </li>
             <li>
+              <a href="./dataanak.php" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-book-fill"></i></span>
+                <span>Penerimaan Anak</span>
+              </a>
+            </li>
+            <li>
+              <a href="./dataanak.php" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-book-fill"></i></span>
+                <span>Pemeriksaan Kesehatan</span>
+              </a>
+            </li>
+            <li>
               <a href="./tambah.php" class="nav-link px-3">
                 <span class="me-2"><i class="bi bi-book-fill"></i></span>
                 <span>Tambah Anak</span>
@@ -120,45 +132,33 @@ $andikpas = query ("SELECT * FROM andikpas");
         <div class="row">
           <div class="col-md-3 mb-3">
             <div class="card bg-primary text-white h-100">
-              <div class="card-body py-5">Kepribadian</div>
+              <div class="card-body py-5">Pendidikan</div>
               <div class="card-footer d-flex">
-                View Details
-                <span class="ms-auto">
-                  <i class="bi bi-chevron-right"></i>
-                </span>
-              </div>
+              <a href="pendidikan.php" class="btn btn-primary">View Detail</a>
+             </div>
             </div>
           </div>
           <div class="col-md-3 mb-3">
-            <div class="card bg-warning text-dark h-100">
-              <div class="card-body py-5">Kemandirian</div>
+            <div class="card bg-warning text-white h-100">
+              <div class="card-body py-5">Kepribadian</div>
               <div class="card-footer d-flex">
-                View Details
-                <span class="ms-auto">
-                  <i class="bi bi-chevron-right"></i>
-                </span>
-              </div>
+              <a href="pendidikan.php" class="btn btn-warning text-white">View Detail</a>
+             </div>
             </div>
           </div>
           <div class="col-md-3 mb-3">
             <div class="card bg-success text-white h-100">
-              <div class="card-body py-5">Integrasi</div>
+              <div class="card-body py-5">Keterampilan</div>
               <div class="card-footer d-flex">
-                View Details
-                <span class="ms-auto">
-                  <i class="bi bi-chevron-right"></i>
-                </span>
+              <a href="pendidikan.php" class="btn btn-success text-white">View Detail</a>
               </div>
             </div>
           </div>
           <div class="col-md-3 mb-3">
             <div class="card bg-danger text-white h-100">
-              <div class="card-body py-5">Asimilasi</div>
+              <div class="card-body py-5">Reward Andikpas</div>
               <div class="card-footer d-flex">
-                View Details
-                <span class="ms-auto">
-                  <i class="bi bi-chevron-right"></i>
-                </span>
+              <a href="pendidikan.php" class="btn btn-danger text-white">View Detail</a>
               </div>
             </div>
           </div>
@@ -170,9 +170,47 @@ $andikpas = query ("SELECT * FROM andikpas");
                 <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
                 Data Pendidikan Anak
               </div>
-              <div class="card-body">
+              <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/gambar1.jpeg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/gambar2.jpeg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/gambar3.jpeg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+              <!-- <div class="card-body">
                 <canvas class="chart" width="400" height="200"></canvas>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="col-md-6 mb-3">
@@ -181,9 +219,47 @@ $andikpas = query ("SELECT * FROM andikpas");
                 <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
                 Data Keterampilan Anak
               </div>
-              <div class="card-body">
+              <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/gambar1.jpeg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/gambar2.jpeg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/gambar3.jpeg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+              <!-- <div class="card-body">
                 <canvas class="chart" width="400" height="200"></canvas>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -202,9 +278,10 @@ $andikpas = query ("SELECT * FROM andikpas");
                         <th>Nomor Register</th>
                         <th>Nama</th>
                         <th>Umur</th>
-                        <th>Pendidikan</th>
-                        <th>Ijazah</th>
-                        <th>Foto</th>
+                        <th>Jenis Kejahatan</th>
+                        <th>Lama Pidana</th>
+                        <th>Ekspirasi</th>
+                        <th>Layanan</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -215,9 +292,10 @@ $andikpas = query ("SELECT * FROM andikpas");
                         <td><?= $row["nr"]; ?></td>
                         <td><?= $row["nama"]; ?></td>
                         <td><?= $row["umur"]; ?></td>
-                        <td><?= $row["pendidikan"]; ?></td>
-                        <td><?= $row["ijazah"]; ?></td>
-                        <td><img src="img/<?= $row["foto"]; ?>" width="40"></td>
+                        <td><?= $row["kejahatan"]; ?></td>
+                        <td><?= $row["lp"]; ?></td>
+                        <td><?= $row["expirasi"]; ?></td>
+                        <td><?= $row["layanan"]; ?></td>
                       </tr>
                       <?php $i++; ?>
                       <?php endforeach; ?>

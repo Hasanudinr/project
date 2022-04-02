@@ -207,6 +207,26 @@
                         <input type="text" class="form-control" name="pasal" id="pasal" required>
                       </div>
                       <div class="mb-3">
+                        <label for="layanan" class="form-label">Lama Pidana</label>
+                        <input type="text" class="form-control" name="lp" id="lp" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="seperdua" class="form-label">1/2 Masa Pidana</label>
+                        <input type="date" class="form-control" name="seperdua" id="seperdua" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="sepertiga" class="form-label">1/3 Masa Pidana</label>
+                        <input type="date" class="form-control" name="sepertiga" id="sepertiga" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="expirasi" class="form-label">Ekspirasi</label>
+                        <input type="date" class="form-control" name="expirasi" id="expirasi" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="layanan" class="form-label">Layanan</label>
+                        <input type="text" class="form-control" name="layanan" id="layanan" required>
+                      </div>
+                      <div class="mb-3">
                         <label for="akte" class="form-label">Akte Kelahiran</label>
                         <input class="form-control" name="akte" type="file" id="akte">
                       </div>
@@ -226,11 +246,10 @@
                         <label for="foto" class="form-label">Foto Andikpas</label>
                         <input class="form-control" name="foto" type="file" id="foto">
                       </div>
-                      <tr>
-                        <th>
-                          <button type="submit" name="submit">Tambah Data</button>
-                       </th>
-                      </tr>
+                      <div class="d-md-block mb-3">
+                        <button class="btn btn-primary btn-lg" type="sumbit" name="submit">submit</button>
+                        <a class="btn btn-danger btn-lg" href="dataanak.php" role="button">kembali</a>
+                      </div>
                       </form>
                     </thead>
                   </table>

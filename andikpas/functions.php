@@ -30,12 +30,13 @@ function tambah ($data) {
     $pendidikan  = htmlspecialchars ($data["pendidikan"]);
     $kejahatan  = htmlspecialchars ($data["kejahatan"]);
     $pasal  = htmlspecialchars ($data["pasal"]);
-    // $akte  = htmlspecialchars ($data["akte"]);
-    // $kk  = htmlspecialchars ($data["kk"]);
-    // $ktp  = htmlspecialchars ($data["ktp"]);
-    // $ijazah  = htmlspecialchars ($data["ijazah"]);
-    
+    $lp  = htmlspecialchars ($data["lp"]);
+    $seperdua  = htmlspecialchars ($data["seperdua"]);
+    $sepertiga  = htmlspecialchars ($data["sepertiga"]);
+    $expirasi  = htmlspecialchars ($data["expirasi"]);
+    $layanan  = htmlspecialchars ($data["layanan"]);
 
+    
     // upload gambar
     $foto = upload();
     if (!$foto) {
@@ -62,9 +63,10 @@ function tambah ($data) {
 
 
     // query inset data
-    $query = "INSERT INTO andikpas VALUES 
+    $query = "INSERT INTO andikpas1 VALUES 
               ('', '$nr', '$nama', '$tempat', '$tgllahir', '$umur', '$jk', '$agama',
-               '$pendidikan', '$kejahatan', '$pasal', '$akte', '$kk', '$ktp', '$ijazah', '$foto')";
+               '$pendidikan', '$kejahatan', '$pasal', '$lp', '$seperdua', '$sepertiga', 
+               '$expirasi', '$layanan', '$akte', '$kk', '$ktp', '$ijazah', '$foto')";
               
         
     mysqli_query($conn, $query);
@@ -336,6 +338,11 @@ function ubah ($data) {
       $pendidikan  = htmlspecialchars ($data["pendidikan"]);
       $kejahatan  = htmlspecialchars ($data["kejahatan"]);
       $pasal  = htmlspecialchars ($data["pasal"]);
+      $lp  = htmlspecialchars ($data["lp"]);
+      $seperdua  = htmlspecialchars ($data["seperdua"]);
+      $sepertiga  = htmlspecialchars ($data["sepertiga"]);
+      $expirasi  = htmlspecialchars ($data["expirasi"]);
+      $layanan  = htmlspecialchars ($data["layanan"]);
       $akte  = htmlspecialchars ($data["akte"]);
       $kk  = htmlspecialchars ($data["kk"]);
       $ktp  = htmlspecialchars ($data["ktp"]);
@@ -355,7 +362,8 @@ function ubah ($data) {
       $query = "UPDATE andikpas SET
                 nr = '$nr', nama = '$nama', tempat = '$tempat', tgllahir = '$tgllahir', 
                 umur = '$umur', jk = '$jk', agama = '$agama', pendidikan = '$pendidikan',
-                kejahatan = '$kejahatan', pasal = '$pasal', akte = '$akte', kk = '$kk',
+                kejahatan = '$kejahatan', pasal = '$pasal', lp = '$lp', seperdua = '$seperdua', 
+                sepertiga = '$sepertiga', ekspirasi = '$expirasi', layanan = '$layanan', akte = '$akte', kk = '$kk',
                 ktp = '$ktp', ijazah = '$ijazah', foto = '$foto'
                 WHERE id = $id";
                 

@@ -1,7 +1,7 @@
 <?php 
 require 'functions.php';
 
-$andikpas = query ("SELECT * FROM andikpas");
+$andikpas = query ("SELECT * FROM andikpas1");
 
 ?>
 
@@ -130,7 +130,7 @@ $andikpas = query ("SELECT * FROM andikpas");
               <div class="card-body">
                 <div class="table-responsive">
                   <table id="example" class="table table-striped data-table" style="width: 100%">
-                    <thead>
+                    <thead class="table-primary">
                       <tr>
                         <th>No</th>
                         <th>Nomor Register</th>
@@ -143,6 +143,11 @@ $andikpas = query ("SELECT * FROM andikpas");
                         <th>Pendidikan</th>
                         <th>Kejahatan</th>
                         <th>Pasal</th>
+                        <th>Lama Pidana</th>
+                        <th>1/2 Masa Pidana</th>
+                        <th>1/3 Masa Pidana</th>
+                        <th>Ekspirasi</th>
+                        <th>Layanan</th>
                         <th>Akte</th>
                         <th>KK</th>
                         <th>KTP</th>
@@ -166,6 +171,11 @@ $andikpas = query ("SELECT * FROM andikpas");
                         <td><?= $row["pendidikan"]; ?></td>
                         <td><?= $row["kejahatan"]; ?></td>
                         <td><?= $row["pasal"]; ?></td>
+                        <td><?= $row["lp"]; ?></td>
+                        <td><?= $row["seperdua"]; ?></td>
+                        <td><?= $row["sepertiga"]; ?></td>
+                        <td><?= $row["expirasi"]; ?></td>
+                        <td><?= $row["layanan"]; ?></td>
                         <td>
                           <a href="unduh.php?file=<?= $row["akte"]; ?>">Lihat File</a>
                         </td>
@@ -178,7 +188,7 @@ $andikpas = query ("SELECT * FROM andikpas");
                         <td>
                         <a href="unduh.php?file=<?= $row["ijazah"]; ?>">Lihat File</a>
                         </td>
-                        <td><img src="img/<?= $row["foto"]; ?>" width="40"></td>
+                        <td><img src="img/<?= $row["foto"]; ?>" width="50" height="70"></td>
                         <td>
                           <a href="ubah.php?id=<?= $row["id"]; ?>">Ubah</a>
                           <a href="hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('yakin')">Hapus</a>
